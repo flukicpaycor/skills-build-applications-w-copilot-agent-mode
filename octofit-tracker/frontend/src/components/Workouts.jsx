@@ -1,9 +1,12 @@
 import { DataView } from './DataView.jsx'
 
+const workoutsApiEndpoint = `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/workouts/`
+
 export function Workouts() {
   return (
     <DataView
       component="workouts"
+      endpoint={workoutsApiEndpoint}
       emptyMessage="No workout suggestions are available yet."
       title="Workouts"
       renderItem={(workout) => (

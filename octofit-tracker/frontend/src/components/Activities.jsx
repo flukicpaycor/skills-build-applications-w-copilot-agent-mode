@@ -1,5 +1,7 @@
 import { DataView } from './DataView.jsx'
 
+const activitiesApiEndpoint = `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/activities/`
+
 function formatDate(value) {
   return value ? new Intl.DateTimeFormat(undefined, { dateStyle: 'medium' }).format(new Date(value)) : 'Not dated'
 }
@@ -8,6 +10,7 @@ export function Activities() {
   return (
     <DataView
       component="activities"
+      endpoint={activitiesApiEndpoint}
       emptyMessage="No activities have been logged yet."
       title="Activities"
       renderItem={(activity) => (
