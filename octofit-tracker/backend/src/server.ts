@@ -12,6 +12,15 @@ const apiBaseUrl = codespaceName
 
 app.use(cors())
 app.use(express.json())
+
+app.get('/', (_request, response) => {
+  response.json({
+    apiBaseUrl,
+    endpoints: ['/api/users/', '/api/activities/', '/api/teams/', '/api/leaderboard/', '/api/workouts/'],
+    status: 'ok',
+  })
+})
+
 app.use('/api', apiRouter)
 
 const errorHandler: ErrorRequestHandler = (error, _request, response, _next) => {
